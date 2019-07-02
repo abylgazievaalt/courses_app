@@ -117,6 +117,7 @@ Courses is a simple API allowing users to view courses and create the new ones.
             }
         ]
         }
+        
 
 ### Create a New Question [POST]
 
@@ -202,3 +203,50 @@ form of choices.
                     }
                 ]
             }
+            
+## Course [/snippets/{snippet_id}]
+
++ Parameters
+    + snippet_id (number) - ID of the course in the form of an integer
+
+### View a Courses Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+        "id": 77,
+        "name": "English Zone",
+        "description": "Миссия English Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.",
+        "category": 2,
+        "logo": "LOGO",
+        "contacts": [
+            {
+                "type": 1,
+                "value": "0770 792 299"
+            },
+            {
+                "type": 2,
+                "value": "https://www.facebook.com/english.zone.kg/"
+            },
+            {
+                "type": 3,
+                "value": "ezone.kg@gmail.com"
+            }
+        ],
+        "branches": [
+            {
+                "address": "Manas 58/ Aini - right next to the Manas university",
+                "latitude": "42.847971",
+                "longitude": "74.586733"
+            },
+            {
+                "address": "Бишкек, Юг-2 дом 15а Советская/Горького",
+                "latitude": "42.8586017",
+                "longitude": "74.6068425"
+            }
+        ]
+        }
+
+### Delete [DELETE]
+
++ Response 204
