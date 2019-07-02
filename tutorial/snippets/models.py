@@ -2,22 +2,21 @@ from django.db import models
 
 class Category(models.Model):
 
-    course = models.ForeignKey('Course', related_name='category', on_delete=models.CASCADE, null=True)
-    name = models.IntegerField(default=0)
+    name = models.IntegerField()
     imgpath = models.CharField(max_length=100, blank=True, default='')
-
+    
     def __str__(self):
-        return '%s, %s' % (self.name, self.imgpath)
+        return '%s' % (self.name)
 
 class Branch(models.Model):
 
     course = models.ForeignKey('Course', related_name='branches', on_delete=models.CASCADE, null=True)
     latitude = models.CharField(max_length=100, blank=True, default='')
-    longtitude = models.CharField(max_length=100, blank=True, default='')
+    longitude = models.CharField(max_length=100, blank=True, default='')
     address = models.CharField(max_length=100, blank=True, default='')
 
     def __str__(self):
-        return '%s, %s, %s, %s' % (self.latitude, self.longtitude, self.address, self.course.name)
+        return '%s, %s, %s, %s' % ( self.address, self.latitude, self.longitude)
 
 class Contact(models.Model):
     course = models.ForeignKey('Course', related_name='contacts', on_delete=models.CASCADE, null=True)
@@ -37,6 +36,7 @@ class Course(models.Model):
     name = models.CharField(max_length=100, blank=True, default='')
     description = models.CharField(max_length=300, blank=True, default='')
     logo = models.CharField(max_length=300, blank=True, default='LOGO')
-
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
+    
     def __str__(self):
         return str(self.name)
