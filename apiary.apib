@@ -1,0 +1,204 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# courses
+
+Courses is a simple API allowing users to view courses and create the new ones.
+
+## Questions Collection [/snippets]
+
+### List All Courses [GET]
+
++ Response 200 (application/json)
+
+        {
+        "count": 3,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 75,
+                "name": "English Zone",
+                "description": "Миссия English Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.",
+                "category": 1,
+                "logo": "http://www.answersfrom.com/wp-content/uploads/2011/09/Not-talanted-but-curious.jpg",
+                "contacts": [
+                    {
+                        "type": 1,
+                        "value": "0770 792 299"
+                    },
+                    {
+                        "type": 2,
+                        "value": "https://www.facebook.com/english.zone.kg/"
+                    },
+                    {
+                        "type": 3,
+                        "value": "ezone.kg@gmail.com"
+                    }
+                ],
+                "branches": [
+                    {
+                        "address": "Manas 58/ Aini - right next to the Manas university",
+                        "latitude": "42.847971",
+                        "longitude": "74.586733"
+                    },
+                    {
+                        "address": "Бишкек, Юг-2 дом 15а Советская/Горького",
+                        "latitude": "42.8586017",
+                        "longitude": "74.6068425"
+                    }
+                ]
+            },
+            {
+                "id": 76,
+                "name": "English Zone",
+                "description": "Миссия English Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.",
+                "category": 2,
+                "logo": "http://www.answersfrom.com/wp-content/uploads/2011/09/Not-talanted-but-curious.jpg",
+                "contacts": [
+                    {
+                        "type": 1,
+                        "value": "0770 792 299"
+                    },
+                    {
+                        "type": 2,
+                        "value": "https://www.facebook.com/english.zone.kg/"
+                    },
+                    {
+                        "type": 3,
+                        "value": "ezone.kg@gmail.com"
+                    }
+                ],
+                "branches": [
+                    {
+                        "address": "Manas 58/ Aini - right next to the Manas university",
+                        "latitude": "42.847971",
+                        "longitude": "74.586733"
+                    },
+                    {
+                        "address": "Бишкек, Юг-2 дом 15а Советская/Горького",
+                        "latitude": "42.8586017",
+                        "longitude": "74.6068425"
+                    }
+                ]
+            },
+            {
+                "id": 77,
+                "name": "English Zone",
+                "description": "Миссия English Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.",
+                "category": 2,
+                "logo": "LOGO",
+                "contacts": [
+                    {
+                        "type": 1,
+                        "value": "0770 792 299"
+                    },
+                    {
+                        "type": 2,
+                        "value": "https://www.facebook.com/english.zone.kg/"
+                    },
+                    {
+                        "type": 3,
+                        "value": "ezone.kg@gmail.com"
+                    }
+                ],
+                "branches": [
+                    {
+                        "address": "Manas 58/ Aini - right next to the Manas university",
+                        "latitude": "42.847971",
+                        "longitude": "74.586733"
+                    },
+                    {
+                        "address": "Бишкек, Юг-2 дом 15а Советская/Горького",
+                        "latitude": "42.8586017",
+                        "longitude": "74.6068425"
+                    }
+                ]
+            }
+        ]
+        }
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+        "name": "English Zone",
+        "description": "Миссия English Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.",
+        "category": 2,
+        "contacts": [
+            {
+                "type": 1,
+                "value": "0770 792 299"
+            },
+            {
+                "type": 2,
+                "value": "https://www.facebook.com/english.zone.kg/"
+            },
+            {
+                "type": 3,
+                "value": "ezone.kg@gmail.com"
+            }
+        ],
+        "branches": [
+            {
+                "address": "Manas 58/ Aini - right next to the Manas university",
+                "latitude": "42.847971",
+                "longitude": "74.586733"
+            },
+            {    
+                "address": "Бишкек, Юг-2 дом 15а Советская/Горького",
+                "latitude": "42.8586017",
+                "longitude": "74.6068425"
+            }
+        ]
+        }
+
+
+
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /snippets/77/
+
+    + Body
+
+            {
+                "id": 77,
+                "name": "English Zone",
+                "description": "Миссия English Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.",
+                "category": 2,
+                "logo": "LOGO",
+                "contacts": [
+                    {
+                        "type": 1,
+                        "value": "0770 792 299"
+                    },
+                    {
+                        "type": 2,
+                        "value": "https://www.facebook.com/english.zone.kg/"
+                    },
+                    {
+                        "type": 3,
+                        "value": "ezone.kg@gmail.com"
+                    }
+                ],
+                "branches": [
+                    {
+                        "address": "Manas 58/ Aini - right next to the Manas university",
+                        "latitude": "42.847971",
+                        "longitude": "74.586733"
+                    },
+                    {
+                        "address": "Бишкек, Юг-2 дом 15а Советская/Горького",
+                        "latitude": "42.8586017",
+                        "longitude": "74.6068425"
+                    }
+                ]
+            }
