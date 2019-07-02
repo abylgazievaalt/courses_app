@@ -91,7 +91,7 @@ HTTP/1.1 204 No Content
 ### • Branch
 ·latitude(String): latitude of the courses place
 
-·longitude(String)L longitude of the courses place
+·longitude(String): longitude of the courses place
 
 ·address(String): address of the courses
 
