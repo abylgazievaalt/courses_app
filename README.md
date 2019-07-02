@@ -1,3 +1,5 @@
+Documentation link: https://github.com/abylgazievaalt/courses_app/blob/master/apiary.apib
+
 # Courses
 
 Courses is a simple API allowing users to view courses and create the new ones.
