@@ -19,8 +19,8 @@ class ContactSerializer(serializers.ModelSerializer):
 class CourseSerializer(serializers.ModelSerializer):
 
     id = serializers.IntegerField(required=False)
-    branches = BranchSerializer(many=True, required=False)
-    contacts = ContactSerializer(many=True, required=False)
+    branches = BranchSerializer(many=True)
+    contacts = ContactSerializer(many=True)
 
     class Meta:
         model = Course
