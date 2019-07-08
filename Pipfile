@@ -13,6 +13,7 @@ coreapi = "*"
 pyyaml = "*"
 coreapi-cli = "*"
 python-decouple = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.6"

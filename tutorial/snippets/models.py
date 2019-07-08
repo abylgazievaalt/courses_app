@@ -2,7 +2,7 @@ from django.db import models
 
 class Category(models.Model):
 
-    name = models.IntegerField()
+    name = models.CharField(max_length=100)
     imgpath = models.CharField(max_length=100, blank=True, default='')
     
     def __str__(self):
@@ -39,4 +39,6 @@ class Course(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
     
     def __str__(self):
-        return str(self.name)
+        return '%s, %s' % (self.name, self.description, self.logo, self.category)
+    
+

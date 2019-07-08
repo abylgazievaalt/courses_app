@@ -28,8 +28,7 @@ ALLOWED_HOSTS = ['testserver',
 
 # Application definition
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'snippets.pagination.PageNumberPaginationDataOnly',
-    'PAGE_SIZE': 10
+    'DEFAULT_PAGINATION_CLASS': 'snippets.pagination.PageNumberPaginationDataOnly'
 }
 
 INSTALLED_APPS = [
