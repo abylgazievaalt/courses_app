@@ -109,7 +109,8 @@ HTTP/1.1 204 No Content
 ·value(String):value of the contact
 
 
-Testing commands: 
+### Testing commands: 
 
 1)coverage run --source=snippets --omit=*/migrations/* manage.py test
+
 2)coverage report -m
