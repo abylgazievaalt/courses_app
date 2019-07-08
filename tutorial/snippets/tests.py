@@ -6,43 +6,43 @@ from rest_framework.test import APITestCase, APIRequestFactory
 
 class CategoryTestCase(unittest.TestCase):
     def setUp(self):
-        self.category = Category.objects.create(name="Lang", imgpath="https://www.yahoo.com")
+        self.category = Category.objects.create(name="Linguistics", imgpath="https://www.yahoo.com")
 
     def test_category_attributes(self):
-        category = Category.objects.get(name="Lang")
-        self.assertEqual(category.imgpath, "https://www.yahoo.com")
+        self.assertEqual(self.category.name, "Linguistics")
+        self.assertEqual(self.category.imgpath, "https://www.yahoo.com")
 
 class CourseTestCase(unittest.TestCase):
     def setUp(self):
         category=Category.objects.create(name='Languages')
-        self.course = Course.objects.create(name="Spanish Zone", description="Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.", category=category)
+        self.course = Course.objects.create(name="Spanish Zone", description="Миссия Spanish Zone", category=category)
 
     def test_course_attributes(self):
         self.assertEqual(self.course.name, "Spanish Zone")
-        self.assertEqual(self.course.description, "Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.")
+        self.assertEqual(self.course.description, "Миссия Spanish Zone")
         self.assertEqual(self.course.logo, 'LOGO')
 
-class ContactTestCase(unittest.TestCase):
-    def setUp(self):
-        category=Category.objects.create(name='Languages')
-        self.course = Course.objects.create(name="Spanish Zone", description="Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.", category=category)
-        Contact.objects.create(course=self.course, type=1, value="12345")
+            #class ContactTestCase(unittest.TestCase):
+            #def setUp(self):
+            #category=Category.objects.create(name='Languages')
+            #self.course = Course.objects.create(name="Spanish Zone", description="Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.", category=category)
+            #Contact.objects.create(course=self.course, type=1, value="12345")
     
 
 
 class BranchTestCase(unittest.TestCase):
     def setUp(self):
         category=Category.objects.create(name='Languages')
-        self.course = Course.objects.create(name="Spanish Zone", description="Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.", category=category)
+        self.course = Course.objects.create(name="Spanish", description="Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.", category=category)
         Branch.objects.create(
-                          course='Spanish Zone',
+                          course=self.course,
                           latitude='latitude',
                           longitude='longitude',
                           address='address'
                           )
         
     def test_branch_attributes(self):
-        branch = Branch.objects.get(course="Spanish Zone")
+        branch = Branch.objects.get(course=self.course)
         self.assertEqual(branch.address, 'address')
 
 class SimpleTest(unittest.TestCase):
