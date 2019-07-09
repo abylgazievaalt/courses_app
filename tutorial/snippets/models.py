@@ -6,7 +6,7 @@ class Category(models.Model):
     imgpath = models.CharField(max_length=100, blank=True, default='')
     
     def __str__(self):
-        return '%s' % (self.name)
+        return str(self.name)
 
 class Branch(models.Model):
 
@@ -16,7 +16,7 @@ class Branch(models.Model):
     address = models.CharField(max_length=100, blank=True, default='')
 
     def __str__(self):
-        return '%s, %s, %s, %s' % ( self.address, self.latitude, self.longitude)
+        return '%s, %s, %s' % ( self.address, self.latitude, self.longitude)
 
 class Contact(models.Model):
     course = models.ForeignKey('Course', related_name='contacts', on_delete=models.CASCADE, null=True)
@@ -39,6 +39,7 @@ class Course(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
     
     def __str__(self):
-        return '%s, %s' % (self.name, self.description, self.logo, self.category)
-    
+        return '%s, %s, %s, %s' % (self.name, self.description, self.logo, self.category)
+
+
 

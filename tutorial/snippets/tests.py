@@ -11,6 +11,10 @@ class CategoryTestCase(unittest.TestCase):
     def test_category_attributes(self):
         self.assertEqual(self.category.name, "Linguistics")
         self.assertEqual(self.category.imgpath, "https://www.yahoo.com")
+    
+    def test_category_str(self):
+        print(self.category.__str__)
+        self.assertEqual(str(self.category), 'Linguistics')
 
 class CourseTestCase(unittest.TestCase):
     def setUp(self):
@@ -22,13 +26,27 @@ class CourseTestCase(unittest.TestCase):
         self.assertEqual(self.course.description, "Миссия Spanish Zone")
         self.assertEqual(self.course.logo, 'LOGO')
 
-            #class ContactTestCase(unittest.TestCase):
-            #def setUp(self):
-            #category=Category.objects.create(name='Languages')
-            #self.course = Course.objects.create(name="Spanish Zone", description="Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.", category=category)
-            #Contact.objects.create(course=self.course, type=1, value="12345")
-    
+    def test_course_str(self):
+        self.assertEqual(str(self.course), "Spanish Zone, Миссия Spanish Zone, LOGO, Languages")
 
+class ContactTestCase(unittest.TestCase):
+    def setUp(self):
+        category=Category.objects.create(name='Languages')
+        self.course = Course.objects.create(name="Spanish", description="Миссия Spanish Zone заключается в том, чтобы помочь людям раскрыть весь их потенциал.", category=category)
+        Contact.objects.create(
+                              course=self.course,
+                              type=1,
+                              value="12345",
+                              )
+    
+    def test_contact_attributes(self):
+        contact = Contact.objects.get(course=self.course)
+        self.assertEqual(contact.type, '1')
+        self.assertEqual(contact.value, "12345")
+
+    def test_contact_str(self):
+        contact = Contact.objects.get(course=self.course)
+        self.assertEqual(str(contact), "1, 12345")
 
 class BranchTestCase(unittest.TestCase):
     def setUp(self):
@@ -40,10 +58,16 @@ class BranchTestCase(unittest.TestCase):
                           longitude='longitude',
                           address='address'
                           )
-        
+    
     def test_branch_attributes(self):
         branch = Branch.objects.get(course=self.course)
+        self.assertEqual(branch.latitude, 'latitude')
+        self.assertEqual(branch.longitude, 'longitude')
         self.assertEqual(branch.address, 'address')
+
+    def test_branch_str(self):
+        branch = Branch.objects.get(course=self.course)
+        self.assertEqual(str(branch), "address, latitude, longitude")
 
 class SimpleTest(unittest.TestCase):
     def setUp(self):
