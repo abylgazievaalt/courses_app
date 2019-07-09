@@ -110,7 +110,8 @@ HTTP/1.1 204 No Content
 
 
 ### Testing commands: 
-
-1)coverage run --source=snippets --omit=*/migrations/* manage.py test
+```
+1)coverage run --source='.' --omit='*/migrations/*.py' manage.py test
 
 2)coverage report -m
+```
