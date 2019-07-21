@@ -1,4 +1,4 @@
-Documentation link: https://github.com/abylgazievaalt/courses_app/blob/master/apiary.apib
+Documentation link: https://courses18.docs.apiary.io/#reference
 
 # Courses
 
