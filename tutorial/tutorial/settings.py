@@ -25,7 +25,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['testserver',
-                 '127.0.0.1']
+                 '127.0.0.1',
+                 'calm-savannah-71947.herokuapp.com']
 
 # Application definition
 REST_FRAMEWORK = {
@@ -33,6 +34,7 @@ REST_FRAMEWORK = {
 }
 
 INSTALLED_APPS = [
+    'gunicorn',
     'rest_framework',
     'snippets.apps.SnippetsConfig',
     'django.contrib.admin',
