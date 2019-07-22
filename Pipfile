@@ -14,7 +14,10 @@ pyyaml = "*"
 coreapi-cli = "*"
 python-decouple = "*"
 coverage = "*"
+<<<<<<< HEAD
 psycopg2 = "*"
+=======
+>>>>>>> f2a2349e10fbd85104512360a467d98ed0e52b3c
 django-heroku = "*"
 gunicorn = "*"
 
